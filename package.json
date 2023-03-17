@@ -2,13 +2,12 @@
   "name": "vue3-todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexpacemaker.github.io/vue3-todo",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.8.3",
