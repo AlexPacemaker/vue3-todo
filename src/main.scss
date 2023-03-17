@@ -7,7 +7,7 @@
   --dark: #313154;
   --danger: #ff5b57;
 
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow: 1px 1px 15px 2px rgb(96, 42, 96);
 
   --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
   --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
@@ -20,9 +20,19 @@
   font-family: "montserrat", sans-serif;
 }
 
+.layer {
+  background-color: black;
+}
+
 .app {
   max-width: 800px;
   margin: 0 auto;
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #d158e1 50%,
+    #ffea00 100%
+  );
 }
 
 input:not([type="radio"]):not([type="checkbox"]),
@@ -35,8 +45,7 @@ button {
 }
 
 body {
-  background: var(--light);
-  color: var(--dark);
+  background-color: black;
 }
 
 section {
@@ -48,14 +57,14 @@ section {
 
 h3 {
   color: var(--dark);
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
 h4 {
-  color: var(--grey);
-  font-size: 0.875rem;
+  color: var(--dark);
+  font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -81,6 +90,7 @@ h4 {
   display: block;
   width: 100%;
   font-size: 1.125rem;
+  font-weight: 400;
   padding: 1rem 1.5rem;
   color: var(--dark);
   background-color: #fff;
@@ -162,6 +172,7 @@ input:checked ~ .bubble::after {
   display: block;
   width: 100%;
   font-size: 1.125rem;
+  font-weight: 600;
   padding: 1rem 1.5rem;
   color: #fff;
   background-color: var(--primary);
@@ -236,7 +247,7 @@ input:checked ~ .bubble::after {
   color: var(--grey);
 }
 
-@media (max-width: 320px) {
+@media (max-width: 370px) {
   .app {
     width: 320px;
   }

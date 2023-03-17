@@ -59,66 +59,68 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="app">
-    <section class="greeting">
-      <h2 class="title">
-        Привет,
-        <input type="text" placeholder="введи имя здесь" v-model="name" />
-      </h2>
-    </section>
-    <section class="create-todo">
-      <h3>Создадим список дел на сегодня</h3>
-      <form @submit.prevent="addTodo">
-        <input
-          type="text"
-          placeholder="запиши свое дело здесь"
-          v-model="input_content"
-        />
-        <h4>Выбери категорию</h4>
-        <div class="options">
-          <label>
-            <input
-              type="radio"
-              name="category"
-              value="business"
-              v-model="input_category"
-            />
-            <span class="bubble business"></span>
-            <div>Бизнес</div>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="category"
-              value="personal"
-              v-model="input_category"
-            />
-            <span class="bubble personal"></span>
-            <div>Личное</div>
-          </label>
-        </div>
-        <input type="submit" value="Добавить дело" />
-      </form>
-    </section>
-    <section class="todo-list">
-      <h3>Список дел</h3>
-      <div class="list">
-        <div
-          v-for="todo in todos_asc"
-          :class="`todo-item ${todo.done && 'done'}`"
-        >
-          <label>
-            <input type="checkbox" v-model="todo.done" />
-            <span :class="`bubble ${todo.category}`"></span>
-          </label>
-          <div class="todo-content">
-            <input type="text" v-model="todo.content" />
+  <div class="layer">
+    <main class="app">
+      <section class="greeting">
+        <h2 class="title">
+          Привет,
+          <input type="text" placeholder="введи имя здесь" v-model="name" />
+        </h2>
+      </section>
+      <section class="create-todo">
+        <h3>Создадим список дел</h3>
+        <form @submit.prevent="addTodo" class="input_todo">
+          <input
+            type="text"
+            placeholder="запиши дело здесь..."
+            v-model="input_content"
+          />
+          <h4>Выбери категорию</h4>
+          <div class="options">
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="business"
+                v-model="input_category"
+              />
+              <span class="bubble business"></span>
+              <div>Бизнес</div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="personal"
+                v-model="input_category"
+              />
+              <span class="bubble personal"></span>
+              <div>Личное</div>
+            </label>
           </div>
-          <div class="actions">
-            <button class="delete" @click="removeTodo(todo)">Delete</button>
+          <input type="submit" value="Добавить дело" />
+        </form>
+      </section>
+      <section class="todo-list">
+        <h3>Список дел</h3>
+        <div class="list">
+          <div
+            v-for="todo in todos_asc"
+            :class="`todo-item ${todo.done && 'done'}`"
+          >
+            <label>
+              <input type="checkbox" v-model="todo.done" />
+              <span :class="`bubble ${todo.category}`"></span>
+            </label>
+            <div class="todo-content">
+              <input type="text" v-model="todo.content" />
+            </div>
+            <div class="actions">
+              <button class="delete" @click="removeTodo(todo)">Delete</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 </template>
