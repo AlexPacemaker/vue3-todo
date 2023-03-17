@@ -1,26 +1,37 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+/* eslint-disable */
+import { ref, onMounted, computed, watch } from "vue";
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+//подключаем ссылки к нужным элементам кода
+const todos = ref([]);
+const name = ref("");
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const input_content = ref("");
+const input_categories = ref(null);
+
+//асинхронный вывод списка
+const todos_asc = computed(() =>
+  todos.value.sort((a, b) => {
+    return b.createdAt - a.createdAt;
+  })
+);
+
+//сохраняем в локальное хранилище данные
+watch(name, (newVal) => {
+  localStorage.setItem("name", newVal);
+});
+
+//вызов из локального хранилища
+
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <main class="app">
+    <section class="greeting">
+      <h2 class="title">
+        Howdy?, <input type="text" placeholder="Name here" v-model="name" />
+      </h2>
+    </section>
+  </main>
+</template>
