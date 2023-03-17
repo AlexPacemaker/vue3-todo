@@ -20,6 +20,11 @@
   font-family: "montserrat", sans-serif;
 }
 
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 input:not([type="radio"]):not([type="checkbox"]),
 button {
   appearance: none;
@@ -229,4 +234,13 @@ input:checked ~ .bubble::after {
 .todo-item.done .todo-content input {
   text-decoration: line-through;
   color: var(--grey);
+}
+
+@media (max-width: 320px) {
+  .app {
+    width: 320px;
+  }
+  .delete {
+    margin-left: -70px;
+  }
 }
